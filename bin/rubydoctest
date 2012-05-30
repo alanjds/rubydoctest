@@ -19,9 +19,10 @@ USAGE: rubydoctest [options] <files>
   
   Options:
     General:
-      --help   - show this usage / help information
-      --single - run all tests in the same ruby environment
-      -t<n>    - only run test number n, e.g. -t1 -t3
+      --help    - show this usage / help information
+      --single  - run all tests in the same ruby environment
+      --dbclean - clean ActiveRecord database after the tests, using DatabaseCleaner
+      -t<n>     - only run test number n, e.g. -t1 -t3
     
     Output Format:
       --html  - output in HTML format
