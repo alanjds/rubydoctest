@@ -7,7 +7,7 @@ require "runner"
 module RubyDocTest
   
   class << self
-    attr_accessor :trace, :ignore_interactive, :tests, :verbose
+    attr_accessor :trace, :ignore_interactive, :tests, :verbose, :db_clean
     attr_writer :output_format
     
     def output_format

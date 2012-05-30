@@ -52,6 +52,7 @@ ruby_lines = []
 ruby_lines << "RubyDocTest.trace = true;" if options.include?("--trace")
 ruby_lines << "RubyDocTest.verbose = true;" if options.include?("--verbose") or options.include?("-v")
 ruby_lines << "RubyDocTest.ignore_interactive = true;" if options.include?("--ignore-interactive")
+ruby_lines << "RubyDocTest.db_clean = true;" if options.include?("--dbclean")
 
 tests = options.map{ |o| o =~ /^-t(\d+)/; $1 }.compact
 ruby_lines << "RubyDocTest.tests = #{tests.inspect};" if tests.size > 0

@@ -116,6 +116,13 @@ module RubyDocTest
     end
     
     def run
+      puts RubyDocTest.db_clean
+      if RubyDocTest.db_clean
+        require 'database_cleaner'
+        DatabaseCleaner[:active_record].strategy = :truncation
+        DatabaseCleaner.start
+      end
+
       prepare_tests
       newline = "\n           "
       everything_passed = true
@@ -173,6 +180,11 @@ module RubyDocTest
         "#{@tests.size} doctests, " +
         "#{fail} failures, " +
         "#{err} errors"
+
+      if RubyDocTest.db_clean
+        DatabaseCleaner.clean
+      end
+
       everything_passed
     end
     
